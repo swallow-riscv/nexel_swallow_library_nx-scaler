@@ -3,7 +3,6 @@ INCLUDES := -I./
 LDFLAGS :=
 LIBS :=
 
-CROSS_COMPILE := aarch64-linux-gnu-
 CC := $(CROSS_COMPILE)gcc
 
 SRCS := $(wildcard *.c)
