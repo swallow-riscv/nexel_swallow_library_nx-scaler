@@ -24,14 +24,12 @@
 extern "C" {
 #endif
 
-#if 0
 struct rect {
 	int x;
 	int y;
 	int width;
 	int height;
 };
-#endif
 
 struct nx_scaler_context {
 	int		src_plane_num;

@@ -19,16 +19,10 @@
 #define __SCALER_H
 
 #include <linux/ioctl.h>
+#include "nx-scaler.h"
 
 #define	IOC_NX_MAGIC	0x6e78	/* nx */
 #define	MAX_PLANE_NUM	3
-
-struct rect {
-	int x;
-	int y;
-	int width;
-	int height;
-};
 
 struct nx_scaler_ioctl_data {
 	int		src_plane_num;
