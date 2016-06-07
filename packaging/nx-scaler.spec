@@ -8,7 +8,6 @@ Source:  %{name}-%{version}.tar.gz
 
 BuildRequires:  pkgconfig automake autoconf libtool
 BuildRequires:  pkgconfig(glib-2.0)
-BuildRequires:  gst-plugins-renderer
 
 Requires(post): /sbin/ldconfig
 Requires(postun): /sbin/ldconfig
@@ -29,21 +28,21 @@ Nexell scaler (devel)
 %setup -q
 
 %build
-make
+autoreconf -v --install || exit 1
+%configure
+make %{?_smp_mflags}
 
 %postun -p /sbin/ldconfig
 
 %install
 rm -rf %{buildroot}
+make install DESTDIR=%{buildroot}
 
-mkdir -p %{buildroot}/usr/include
-cp %{_builddir}/%{name}-%{version}/*.h  %{buildroot}/usr/include
-
-mkdir -p %{buildroot}/usr/lib
-cp %{_builddir}/%{name}-%{version}/*.so  %{buildroot}/usr/lib
+find %{buildroot} -type f -name "*.la" -delete
 
 %files
-%attr (0644, root, root) %{_libdir}/*
+%{_libdir}/libnx_scaler.so
+%{_libdir}/libnx_scaler.so.*
 
 %files devel
-%attr (0644, root, root) %{_includedir}/*
+%{_includedir}/nx-scaler.h
