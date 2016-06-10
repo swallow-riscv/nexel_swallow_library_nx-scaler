@@ -57,7 +57,7 @@ int scaler_open(void)
 	int handle;
 
 	handle = open("/dev/scaler", O_RDWR);
-	if (handle < -1)
+	if (handle < 0)
 		return -ENODEV;
 
 	return handle;
