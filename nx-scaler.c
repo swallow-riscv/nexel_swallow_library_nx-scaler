@@ -30,7 +30,7 @@
 #include "scaler.h"
 #include "nx-scaler.h"
 
-void covert_scaling_data(struct nx_scaler_ioctl_data *data,
+void convert_scaling_data(struct nx_scaler_ioctl_data *data,
 	struct nx_scaler_context *ctx)
 {
 	data->src_plane_num	= ctx->src_plane_num;
@@ -43,8 +43,8 @@ void covert_scaling_data(struct nx_scaler_ioctl_data *data,
 
 	data->dst_plane_num	= ctx->dst_plane_num;
 	memcpy(data->dst_fds, ctx->dst_fds, sizeof(ctx->dst_fds));
-	memcpy(data->dst_stride, ctx->src_stride,
-		sizeof(ctx->src_stride));
+	memcpy(data->dst_stride, ctx->dst_stride,
+		sizeof(ctx->dst_stride));
 	data->dst_width	= ctx->dst_width;
 	data->dst_height	= ctx->dst_height;
 	data->dst_code	= ctx->dst_code;
@@ -67,7 +67,7 @@ int nx_scaler_run(int handle, struct nx_scaler_context *ctx)
 {
 	struct nx_scaler_ioctl_data data;
 
-	covert_scaling_data(&data, ctx);
+	convert_scaling_data(&data, ctx);
 
 	return ioctl(handle, IOCTL_SCALER_SET_AND_RUN, &data);
 }
