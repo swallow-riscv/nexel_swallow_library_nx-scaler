@@ -1,7 +1,7 @@
 Name:    nx-scaler
 Version: 0.0.1
 Release: 2
-License: Apache 2.0
+License: LGPLv2+
 Summary: Nexell scaler
 Group: Development/Libraries
 Source:  %{name}-%{version}.tar.gz
@@ -18,7 +18,7 @@ Nexell scaler
 %package devel
 Summary: Nexell scaler
 Group: Development/Libraries
-License: Apache 2.0
+License: LGPLv2+
 Requires: %{name} = %{version}-%{release}
 
 %description devel
@@ -43,6 +43,8 @@ find %{buildroot} -type f -name "*.la" -delete
 %files
 %{_libdir}/libnx_scaler.so
 %{_libdir}/libnx_scaler.so.*
+%license LICENSE.LGPLv2+
 
 %files devel
 %{_includedir}/nx-scaler.h
+%license LICENSE.LGPLv2+
