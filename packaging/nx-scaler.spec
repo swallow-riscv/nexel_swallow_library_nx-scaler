@@ -1,6 +1,6 @@
 Name:    nx-scaler
-Version: 0.0.1
-Release: 2
+Version: 1.0.0
+Release: 1
 License: LGPLv2+
 Summary: Nexell scaler
 Group: Development/Libraries
